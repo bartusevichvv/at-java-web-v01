@@ -1,12 +1,15 @@
-package demo.part02;
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
+go
+
+
+        package work.part02;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import static com.codeborne.selenide.Condition.*;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-public class SearchDemoTest {
+
+public class MySearchTest {
     @Test
     public void testElementSearchMethods() {
         open("https://slqamsk.github.io/demo/search-demo/");
@@ -20,4 +23,4 @@ public class SearchDemoTest {
         $(By.linkText("Регистрация нового пользователя в системе")).shouldBe(visible);
         $(By.partialLinkText("Контакты")).shouldBe(visible);
     }
-}git
+}
