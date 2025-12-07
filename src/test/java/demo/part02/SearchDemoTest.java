@@ -11,17 +11,13 @@ public class SearchDemoTest {
     public void testElementSearchMethods() {
         open("https://slqamsk.github.io/demo/search-demo/");
 
-        By myLocator = By.id("submit-button");
-        SelenideElement myElement = Selenide.element(myLocator);
-        myElement.shouldBe(Condition.visible);
+        element(By.id("user-password")).shouldBe(visible);
+        $(By.id("user-password")).shouldBe(visible);
 
-        element(By.id("submit-button")).shouldBe(visible);
-        $(By.id("submit-button")).shouldBe(visible);
-
-        $(By.name("interests")).shouldBe(visible);
-        $(By.className("nav-link")).shouldBe(visible);
-        $(By.tagName("input")).shouldBe(visible);
-        $(By.linkText("Контакты и обратная связь")).shouldBe(visible);
-        $(By.partialLinkText("длинный")).shouldBe(visible);
+        $(By.name("user_email")).shouldBe(visible);
+        $(By.className("btn")).shouldBe(visible);
+        $(By.tagName("h3")).shouldBe(visible);
+        $(By.linkText("Регистрация нового пользователя в системе")).shouldBe(visible);
+        $(By.partialLinkText("Контакты")).shouldBe(visible);
     }
 }
