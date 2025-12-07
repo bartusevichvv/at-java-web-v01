@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.*;
 
-public class MySearchTest {
+public class FreeCalculationTests {
 
     @Test
     public void test01() {
@@ -12,9 +12,11 @@ public class MySearchTest {
 
         $(By.name("sum")).sendKeys("500");
         $(By.name("submit")).click();
-        $(By.name("sum")).setValue("1500");
-        $(By.name("submit")).click();
         $(By.name("sum")).type("2500");
         $(By.name("submit")).click();
+        $(By.name("sum")).setValue("2500");
+        $(By.name("submit")).click();
+
+
     }
 }

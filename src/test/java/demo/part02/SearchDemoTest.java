@@ -20,4 +20,4 @@ public class SearchDemoTest {
         $(By.linkText("Регистрация нового пользователя в системе")).shouldBe(visible);
         $(By.partialLinkText("Контакты")).shouldBe(visible);
     }
-}git
+}
