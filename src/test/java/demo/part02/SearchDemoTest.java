@@ -11,6 +11,7 @@ public class SearchDemoTest {
     public void testElementSearchMethods() {
         open("https://slqamsk.github.io/demo/search-demo/");
 
+<<<<<<< HEAD
         element(By.id("user-password")).shouldBe(visible);
         $(By.id("user-password")).shouldBe(visible);
 
@@ -19,5 +20,19 @@ public class SearchDemoTest {
         $(By.tagName("h3")).shouldBe(visible);
         $(By.linkText("Регистрация нового пользователя в системе")).shouldBe(visible);
         $(By.partialLinkText("Контакты")).shouldBe(visible);
+=======
+        By myLocator = By.id("submit-button");
+        SelenideElement myElement = Selenide.element(myLocator);
+        myElement.shouldBe(visible);
+        myElement.shouldBe(Condition.visible);
+        element(By.id("submit-button")).shouldBe(visible);
+        $(By.id("submit-button")).shouldBe(visible);
+
+        $(By.name("interests")).shouldBe(visible);
+        $(By.className("nav-link")).shouldBe(visible);
+        $(By.tagName("input")).shouldBe(visible);
+        $(By.linkText("Контакты и обратная связь")).shouldBe(visible);
+        $(By.partialLinkText("длинный")).shouldBe(visible);
+>>>>>>> 7ceb2a0e7f23416a6ee29fa2200ccdb57c312abc
     }
 }
