@@ -8,7 +8,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-@TestMethodOrder(MethodOrderer.MethodName.class)
+//@TestMethodOrder(MethodOrderer.MethodName.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayName("Тестовый набор FourthLoginTests - проверка аутентификации")
 public class FifthLoginTests {
     @BeforeAll
@@ -125,6 +126,7 @@ public class FifthLoginTests {
 
     @Test
     @DisplayName("07. Проверить, что под заблокированным пользователем нельзя войти в систему")
+    @Order(1)
     void test07_error_blocked_user() {
         $("#username").sendKeys("locked_out_user");
         $("#password").sendKeys("secret_sauce");

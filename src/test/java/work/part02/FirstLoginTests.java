@@ -1,5 +1,6 @@
 package work.part02;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -40,6 +41,7 @@ public class FirstLoginTests {
     }
 
     @Test
+    @Tag("MyTest")
     public void test03() {
         open("https://slqa.ru/cases/ChatGPTLogin");
 
