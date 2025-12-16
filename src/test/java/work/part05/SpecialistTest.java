@@ -2,6 +2,7 @@ package work.part05;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.text;
@@ -20,11 +21,11 @@ public class SpecialistTest {
         $("#cookieConsent__ok").click(); // Нажатие кнопки "Согласен"
 
         $x("//a[@class='top-level-menu']").shouldHave(text("Форматы обучения")).click(); // Нажатие кнопки "Форматы обучения"
-        $x("//a[@href='/free-learning-new']").scrollIntoView(true).click(); // Нажатие Свободное обучение
+        $(new By.ByLinkText("Свободное обучение")).scrollIntoView(true).click(); // Нажатие Свободное обучение
         $x("//a[@href='#selectCourse']").click(); // Нажатие Выбрать курс
         $("#Filter_CategoriesDirectionFilter").selectOption(10); // Выбираем "Программирование"
         $("#sendBtn").click(); // Нажатие Применить
-        $x("//body[contains(., 'Тестирование ПО')]").shouldHave(text("Тестирование ПО"));
+        $("body").shouldHave(text("Тестирование ПО"));
 
     }
 }
