@@ -17,16 +17,17 @@ import java.util.stream.Stream;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class MyCinemaTests {
+public class KinoTest {
     @BeforeEach
-    Configuration.pageLoadStrategy = "eager";
-    open("http://92.51.36.108:7777/sl.qa/cinema/index.php");
-    getWebDriver().manage().window().maximize();
+    void setUp() {
 
+        Configuration.pageLoadStrategy = "eager";
+    }
     @ParameterizedTest
-    @CsvFileSource(resources = "cinema_test.csv", numLinesToSkip=1);
+    @CsvFileSource(resources = "cinema_test.csv", numLinesToSkip = 1)
     void test01(String film, String date, String start, String age, String result) {
 
+        open("http://92.51.36.108:7777/sl.qa/cinema/index.php");
         $("input[name=age]").setValue(age);
         $("input[name='date']").setValue(date); // Дата в формате YYYY-MM-DD
         $("input[name=session][value='" + start + "']").click();
@@ -35,6 +36,4 @@ public class MyCinemaTests {
         $("div").shouldHave(text(result));
         sleep(1_000);
     }
-
-
 }

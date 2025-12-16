@@ -2,9 +2,10 @@ package work.part05;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -12,7 +13,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 public class SpecialistTest {
 
     @Test
-    public void test01() {
+    public void test02() {
         Configuration.pageLoadStrategy = "eager";
         open("https://www.specialist.ru/");
         getWebDriver().manage().window().maximize();
