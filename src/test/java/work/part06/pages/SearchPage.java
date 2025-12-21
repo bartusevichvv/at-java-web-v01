@@ -1,9 +1,10 @@
-package pages;
+package work.part06.pages;
+
+import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
-import com.codeborne.selenide.SelenideElement;
 
 public class SearchPage {
     SelenideElement
@@ -12,9 +13,6 @@ public class SearchPage {
             departureDate = $("#departureDate"),
             findButton = $x("//button[.='Найти']"),
             message = $("#searchMessage");
-
-    public static void isDepartureBack() {
-    }
 
     public void search(String departureDate) {
         this.departureDate.setValue(departureDate);
@@ -32,5 +30,6 @@ public class SearchPage {
         this.message.shouldHave(text("Пожалуйста, укажите дату вылета."));
     }
 
-
+    public void isDepartureBack() { this.message.shouldHave(text("Невозможно осуществить поиск: выбранная дата уже прошла."));
+    }
 }
