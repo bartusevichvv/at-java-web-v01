@@ -1,12 +1,12 @@
-package work.part06.pages;
-
-import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Step;
-import org.openqa.selenium.Alert;
+package demo.part07.pages;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
+import org.openqa.selenium.Alert;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RegistrationPage {
@@ -19,13 +19,6 @@ public class RegistrationPage {
         phone = $("#phone"),
         message = $("#registrationMessage");
 
-
-    @Step("Проверка, что данные рейса корректные")
-    public void isFlightDataCorrect(String cityFrom, String cityTo) {
-        flightInfo
-                .shouldBe(visible)
-                .shouldHave(text(cityFrom + " → " + cityTo));
-    }
 
     @Step("Успешная регистрация со значениями по умолчанию")
     public void successDefaultRegistration() {
@@ -43,6 +36,13 @@ public class RegistrationPage {
         this.email.setValue(email);
         this.phone.setValue(phone);
         buttonFinishRegistration.click();
+    }
+
+    @Step("Проверка, что данные рейса корректные")
+    public void isFlightDataCorrect(String cityFrom, String cityTo) {
+        flightInfo
+                .shouldBe(visible)
+                .shouldHave(text(cityFrom + " → " + cityTo));
     }
 
     @Step("Появилась ошибка Заполните все поля")
