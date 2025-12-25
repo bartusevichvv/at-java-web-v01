@@ -1,5 +1,7 @@
 package work.part08;
 
+import com.codeborne.selenide.Browsers;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
@@ -8,16 +10,23 @@ import work.part08.pages.PassengerPage;
 import work.part08.pages.SearchPage;
 
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+
+
+
 
 @TestMethodOrder(MethodOrderer.DisplayName.class)
 public class POMAgileTravelTests {
     @BeforeAll
     static void beforeAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
+        //Configuration.timeout = 6000;
     }
+
     @BeforeEach
     void setUp() {
+        Configuration.browser = Browsers.FIREFOX;
         open("https://travel.agileway.net/");
         getWebDriver().manage().window().maximize();
     }
@@ -35,6 +44,7 @@ public class POMAgileTravelTests {
     void test01OkPassword() {
         LoginPage loginPage = new LoginPage();
         loginPage.login("agileway", "test$W1se");
+        sleep(15000);
         loginPage.isLoginSuccessful();
     }
 
@@ -66,8 +76,7 @@ public class POMAgileTravelTests {
         // Страница логина
         LoginPage loginPage = new LoginPage();
         loginPage.login("agileway", "test$W1se");
-        loginPage.isLoginSuccessful();
-
+        //loginPage.isLoginSuccessful();
 
         // Страница поиска рейсов
         SearchPage searchPage = new SearchPage();

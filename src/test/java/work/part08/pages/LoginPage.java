@@ -1,8 +1,8 @@
 package work.part08.pages;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
+
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -18,7 +18,8 @@ public class LoginPage {
     public LoginPage() {
         username = $("#username");
         password = $("#password");
-        loginButton = $x("//input[@name='commit']");
+        loginButton = $("input[name=commit]");
+        //loginButton = $("input[type=submit");
         errorMessage = $("#flash_alert");
         okMessage = $("#flash_notice");
         outButton = $x("//a[@href='/logout']");
