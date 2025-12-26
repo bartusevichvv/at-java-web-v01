@@ -19,7 +19,6 @@ public class LoginPage {
         username = $("#username");
         password = $("#password");
         loginButton = $("input[name=commit]");
-        //loginButton = $("input[type=submit");
         errorMessage = $("#flash_alert");
         okMessage = $("#flash_notice");
         outButton = $x("//a[@href='/logout']");
