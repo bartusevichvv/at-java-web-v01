@@ -5,7 +5,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import com.codeborne.selenide.SelenideElement;
 
-public class PassengerPage {
+public class    PassengerPage {
     SelenideElement
             FirstName = $x("//input[@name='passengerFirstName']"),
             LastName = $x("//input[@name='passengerLastName']"),
@@ -14,7 +14,7 @@ public class PassengerPage {
 
     public void passPage(String FName, String LName) {
         this.FirstName.sendKeys(FName);
-        this.LastName.selectOption(LName);
+        this.LastName.sendKeys(LName);
         this.nextButton.click();
     }
 
