@@ -5,6 +5,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
+import work.part08.pages.CardPage;
 import work.part08.pages.LoginPage;
 import work.part08.pages.PassengerPage;
 import work.part08.pages.SearchPage;
@@ -44,7 +45,6 @@ public class POMAgileTravelTests {
     void test01OkPassword() {
         LoginPage loginPage = new LoginPage();
         loginPage.login("agileway", "test$W1se");
-        sleep(15000);
         loginPage.isLoginSuccessful();
     }
 
@@ -70,13 +70,13 @@ public class POMAgileTravelTests {
         searchPage.search("01", "January 2026", "New York", "Sydney");
     }
 
-    //5. Ввод фамилии и имени
+    //5. Ввод реквизитов
     @Test
     void test02EnterName() {
         // Страница логина
         LoginPage loginPage = new LoginPage();
         loginPage.login("agileway", "test$W1se");
-        //loginPage.isLoginSuccessful();
+        loginPage.isLoginSuccessful();
 
         // Страница поиска рейсов
         SearchPage searchPage = new SearchPage();
@@ -85,6 +85,10 @@ public class POMAgileTravelTests {
         // Ввод фамилии и имени
         PassengerPage passengerPage = new PassengerPage();
         passengerPage.passPage("Ivan", "Ivanov");
+
+        // Ввод карты
+        CardPage cardPage = new CardPage();
+        cardPage.card("1234554332", "01", "2028");
 
     }
 }
